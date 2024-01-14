@@ -1,29 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
-import ReactSimpleImageViewer from "react-simple-image-viewer"
+import Media from "./media"
 
 export default function OfferItem({ offer, index }) {
-  const mainMedia = offer.medias[0]?.file?.url
-  const [openMainMedia, setOpenMainMedia] = React.useState(false)
   return (
     <div className="grid grid-cols-2 gap-8 items-center" key={offer.title}>
-      <img
-        src={mainMedia}
-        alt=""
-        className={`rounded-xl shadow-xl shadow-primary w-full object-cover ${
-          index % 2 !== 0 && "order-last"
-        }`}
-        onClick={() => setOpenMainMedia(true)}
-      />
-      {openMainMedia && (
-        <ReactSimpleImageViewer
-          src={[mainMedia]}
-          currentIndex={0}
-          disableScroll={false}
-          closeOnClickOutside={true}
-          onClose={() => setOpenMainMedia(false)}
+      <div className={`${index % 2 !== 0 && "order-last"}`}>
+        <Media
+          medias={offer.medias
+            ?.filter((_, index) => index === 0)
+            .map(media => media.file.url)}
         />
-      )}
+      </div>
 
       <div>
         <div className="text-2xl text-primary font-bold tracking-wider">

@@ -21,7 +21,6 @@ export const query = graphql`
 `
 
 const OfferPage = ({ data }) => {
-  console.log(data)
   const offer = data.contentfulOffer
 
   return (

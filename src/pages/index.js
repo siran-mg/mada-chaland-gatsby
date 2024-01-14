@@ -4,42 +4,42 @@ import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import OfferItem from "../components/offer"
 
-const IndexPage = () => {
-  const { allContentfulOffer, contentfulHeadline } = useStaticQuery(graphql`
-    query {
-      allContentfulOffer {
-        nodes {
-          id
-          title
-          price
-          medias {
-            file {
-              url
-            }
-          }
-          description {
-            description
-          }
-          shortDescription {
-            shortDescription
-          }
-        }
-      }
-      contentfulHeadline {
-        text {
-          text
-        }
+export const query = graphql`
+  query {
+    allContentfulOffer {
+      nodes {
+        id
+        title
+        price
         medias {
           file {
             url
           }
         }
+        description {
+          description
+        }
+        shortDescription {
+          shortDescription
+        }
       }
     }
-  `)
+    contentfulHeadline {
+      text {
+        text
+      }
+      medias {
+        file {
+          url
+        }
+      }
+    }
+  }
+`
 
-  const offers = allContentfulOffer.nodes
-  const headline = contentfulHeadline
+const IndexPage = ({ data }) => {
+  const offers = data.allContentfulOffer.nodes
+  const headline = data.contentfulHeadline
 
   return (
     <Layout>
