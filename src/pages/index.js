@@ -1,12 +1,12 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import OfferItem from "../components/offer"
 
 export const query = graphql`
   query {
-    allContentfulOffer {
+    offers: allContentfulOffer(filter: { node_locale: { eq: "fr" } }) {
       nodes {
         id
         title
@@ -24,7 +24,7 @@ export const query = graphql`
         }
       }
     }
-    contentfulHeadline {
+    headline: contentfulHeadline(node_locale: { eq: "fr" }) {
       text {
         text
       }
@@ -37,10 +37,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data }) => {
-  const offers = data.allContentfulOffer.nodes
-  const headline = data.contentfulHeadline
-
+const IndexPage = ({ data: { offers, headline } }) => {
   return (
     <Layout>
       <div
@@ -61,7 +58,7 @@ const IndexPage = ({ data }) => {
         <div className="text-center text-4xl mb-16 mt-8">Nos offres</div>
 
         <div className="flex flex-col gap-16">
-          {offers?.map((offer, index) => (
+          {offers?.nodes?.map((offer, index) => (
             <OfferItem offer={offer} index={index} key={index} />
           ))}
         </div>
