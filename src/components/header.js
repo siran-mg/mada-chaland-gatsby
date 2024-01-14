@@ -28,9 +28,11 @@ function Header() {
         </Link>
       </ul>
 
-      <button className="flex items-center bg-secondary shadow-primary text-onSecondary uppercase rounded-full mt-2 px-8 py-2 shadow-lg hover:scale-110 duration-100">
-        Contactez nous
-      </button>
+      <Link href="/contact">
+        <div className="flex items-center bg-secondary shadow-primary text-onSecondary uppercase rounded-full mt-2 px-8 py-2 shadow-lg hover:scale-110 duration-100">
+          Contactez nous
+        </div>
+      </Link>
     </div>
   )
 }
