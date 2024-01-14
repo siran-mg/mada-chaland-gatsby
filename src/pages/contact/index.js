@@ -4,6 +4,7 @@ import Layout from "../../components/layout"
 const ContactPage = () => (
   <Layout>
     <form name="contact" data-netlify="true" className="px-56 py-16">
+      <input type="hidden" name="form-name" value="contact" />
       <div className="text-3xl font-bold uppercase text-center w-full mb-8">
         Contact
       </div>
