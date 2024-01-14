@@ -9,6 +9,7 @@ const IndexPage = () => {
     query {
       allContentfulOffer {
         nodes {
+          id
           title
           price
           medias {
@@ -25,7 +26,6 @@ const IndexPage = () => {
         }
       }
       contentfulHeadline {
-        contentful_id
         text {
           text
         }
@@ -40,8 +40,6 @@ const IndexPage = () => {
 
   const offers = allContentfulOffer.nodes
   const headline = contentfulHeadline
-
-  console.log(headline)
 
   return (
     <Layout>
