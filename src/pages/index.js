@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import OfferItem from "../components/offer"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query {
@@ -40,6 +41,7 @@ export const query = graphql`
 const IndexPage = ({ data: { offers, headline } }) => {
   return (
     <Layout>
+      <SEO title="Accueil" />
       <div
         style={{
           backgroundImage: `url(${headline.medias[0]?.file?.url})`,
