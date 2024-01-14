@@ -10,10 +10,15 @@ import PropTypes from "prop-types"
 
 import Header from "./header"
 import Footer from "./footer"
+import { Helmet } from "react-helmet"
 
 const Layout = ({ children }) => {
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Mada Chaland</title>
+      </Helmet>
       <Header />
       <main className="bg-surface text-onSurace">{children}</main>
       <Footer />
