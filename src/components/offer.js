@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import Media from "./media"
+import Link from "./link"
 
 export default function OfferItem({ offer, index }) {
   return (

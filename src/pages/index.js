@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <div
         style={{
-          backgroundImage: `url(${headline.medias?.shift()?.file?.url})`,
+          backgroundImage: `url(${headline.medias[0]?.file?.url})`,
           backgroundSize: "cover",
           height: "700px",
           width: "100%",
