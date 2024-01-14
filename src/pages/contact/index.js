@@ -3,7 +3,7 @@ import Layout from "../../components/layout"
 
 const ContactPage = () => (
   <Layout>
-    <form name="contact" netlify className="px-56 py-16" method="post">
+    <form name="contact" netlify className="px-56 py-16">
       <div className="text-3xl font-bold uppercase text-center w-full mb-8">
         Contact
       </div>
